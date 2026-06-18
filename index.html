@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동양미래대학교 반도체 부트캠프</title>
+    <!-- 폰트 적용 (Pretendard) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- 네비게이션 바 (헤더) -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration:none; color:inherit;">
+                    <span class="highlight">DMU</span> 반도체 부트캠프
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#curriculum">프로그램 소개</a></li>
+                    <li><a href="board.html">게시판</a></li>
+                    <li><a href="#" class="btn-secondary" id="loginBtn" style="color:var(--deep-blue) !important; border-color:var(--deep-blue);">로그인</a></li>
+                    <li><a href="apply.html" class="btn-primary">지원하기</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 메인 배너 (히어로 섹션) -->
+    <main>
+        <section class="hero">
+            <!-- 첨단 장비 느낌 배경 이미지 (소프트한 배치) -->
+            <div class="hero-bg"></div>
+            <div class="container hero-content">
+                <div class="hero-text" style="text-align: center; margin: 0 auto;">
+                    <span class="badge">첨단산업 인재양성 부트캠프 집중모집</span>
+                    <h1><span class="text-white">무료 교육 + 최대 150만 원 장학금</span><br><span class="text-electric">반도체 기업 취업 연계</span></h1>
+                    <p class="hero-subtext">현장 실무 중심의 체계적인 커리큘럼으로 반도체 전문가의 꿈을 완성하세요.</p>
+                    <div class="hero-buttons" style="justify-content: center; margin-top: 30px;">
+                        <a href="apply.html" class="btn-primary large btn-glow">🚀 참여 신청하기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Status Board 위젯 (히어로 섹션 바로 아래) -->
+        <div class="live-status-wrapper">
+            <div class="container">
+                <div class="live-status-card">
+                    <div class="status-header">
+                        <div class="pulse-indicator"></div>
+                        <h3>Live Status Board <span class="status-subtitle">| 마이크로디그리 과정 신청 현황</span></h3>
+                    </div>
+                    
+                    <div class="status-item">
+                        <div class="status-info">
+                            <div class="status-left">
+                                <span class="status-tag">모집중</span>
+                                <span class="status-title">반도체장비S/W 실무 (몰입형)</span>
+                            </div>
+                            <span class="status-count"><span class="highlight-count">24</span> / 26명</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 92%;"></div>
+                        </div>
+                        <div class="status-alert">
+                            <span class="alert-icon">🔥</span> 마감이 임박했습니다! (잔여 2석)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 인터랙티브 이수 로드맵 (커리큘럼) -->
+        <!-- 상세 교육과정 안내 -->
+        <section id="curriculum" class="section curriculum-section bg-white">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">교육과정안내</h2>
+                    <p class="section-subtitle" style="margin-top: 15px;">- 부트캠프 교육과정 프로그램은 크게 마이크로디그리, 몰입형, 기타 교육과정으로 이루어집니다.</p>
+                </div>
+
+                <!-- 탭 메뉴 (실제 캡처 화면 반영) -->
+                <div class="curri-tabs">
+                    <button class="curri-tab-btn active" data-target="curri-micro">마이크로디그리 과정</button>
+                    <button class="curri-tab-btn" data-target="curri-immersive">몰입형 교육과정</button>
+                    <button class="curri-tab-btn" data-target="curri-other">기타 교육과정</button>
+                </div>
+
+                <div class="curri-content">
+                    <div id="curri-micro" class="curri-pane" style="display:block;">
+                        <div class="curri-desc">
+                        <h3 style="font-size: 1.4rem; color: var(--text-main); margin-bottom: 25px;">마이크로디그리 과정</h3>
+                        <p>- 반도체 관련 정규 교과목(교과형)과 단기 집중교육과목(몰입형)의 혼합형 교육과정으로 구성</p>
+                        <p>- 반도체 설비 유지보수 및 집적회로 설계 관련 반도체 실무 테크니션 양성을 목표로 마이크로디그리 교육과정을 개발</p>
+                        <p>- 마이크로디그리 교육과정은 초급, 중급, 고급 총 10개 교육과정으로 운영</p>
+                    </div>
+
+                    <!-- 초급 -->
+                    <div class="curri-level-block border-top">
+                        <div class="level-title">초급</div>
+                        <div class="level-content">
+                            
+                            <!-- 소모듈 1 (초급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체공정 및 설비기초</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체의 물리적 특성을 이해하고 기본적인 소자를 학습, 반도체 산업의 메모리를 이해하고 기본적인 반도체 공정도 설비를 학습</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="bg-light">초급</td>
+                                                <td class="bg-light">교과형</td>
+                                                <td>반도체기초</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                                <td class="bg-light">C학점 이상</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- 소모듈 2 (초급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체소자 및 공정기초</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 전자 공학의 가장 기초 소자인 DIODE, TRANSITOR, FET를 기초로하는 반도체를 정의하고 반도체의 기본 동작 방식과 제작 방법의 흐름을 학습</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="bg-light">초급</td>
+                                                <td class="bg-light">교과형</td>
+                                                <td>반도체공학</td>
+                                                <td>1/2</td>
+                                                <td>30</td>
+                                                <td>2</td>
+                                                <td class="bg-light">C학점 이상</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 중급 -->
+                    <div class="curri-level-block border-top">
+                        <div class="level-title">중급</div>
+                        <div class="level-content">
+                            
+                            <!-- 소모듈 1 (중급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체설비자동화</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체설비를 자동화하기 위한 기초 지식과 실무 능력을 갖춘 인력양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="5" class="bg-light">중급</td>
+                                                <td rowspan="4" class="bg-light">교과형</td>
+                                                <td>캡스톤디자인</td>
+                                                <td>3/1</td>
+                                                <td>90</td>
+                                                <td>4</td>
+                                                <td rowspan="5" class="bg-light">4개 교과목 이상이고<br>10학점 이상</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PLC제어</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PC기반제어</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>창의과제 (캡스톤디자인)</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg-light">몰입형</td>
+                                                <td>협동로봇오퍼레이션 실무</td>
+                                                <td>2, 3학년</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> 반도체의 종류와 특성을 이해하고, 반도체 공정 모니터링 및 설비자동화를 위한 설계, 제작 등의 교육과정을 이수하여 반도체 제조공정 분야 취업에 도움을 받을 수 있음</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 소모듈 2 (중급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체장비제어</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체 장비를 제어하기 위한 기초 지식과 실무 능력을 갖춘 인력양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="5" class="bg-light">중급</td>
+                                                <td rowspan="4" class="bg-light">교과형</td>
+                                                <td>PLC프로그래밍</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                                <td rowspan="5" class="bg-light">4개 교과목 이상이고<br>10학점 이상</td>
+                                            </tr>
+                                            <tr>
+                                                <td>캡스톤디자인</td>
+                                                <td>3/1</td>
+                                                <td>90</td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PC기반제어</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PLC제어</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg-light">몰입형</td>
+                                                <td>PLC 실무</td>
+                                                <td>3학년</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> PLC 응용 모듈을 활용, 설비자동화를 위한 설계 및 제작을 배울 수 있으며 PLC실무(몰입형 교육) 인증을 받아 실무 능력을 향상시키고 기술력과 다양한 데이터 분석 능력을 함양하여 반도체장비를 제어할 수 있는 직무에 취업 가능</p>
+                                </div>
+                            </div>
+                            <!-- 소모듈 3 (중급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체레이아웃설계</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체 레이아웃 설계 직무를 위한 이론 및 실기 능력을 갖춘 인재 양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="5" class="bg-light">중급</td>
+                                                <td rowspan="4" class="bg-light">교과형</td>
+                                                <td>전자회로</td>
+                                                <td>2/1</td>
+                                                <td>30</td>
+                                                <td>2</td>
+                                                <td rowspan="5" class="bg-light">4개 교과목 이상이고<br>10학점 이상</td>
+                                            </tr>
+                                            <tr>
+                                                <td>집적회로설계</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체특성실험</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체레이아웃</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg-light">몰입형</td>
+                                                <td>반도체레이아웃설계 실무</td>
+                                                <td>2,3학년</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> 반도체레이아웃설계 과정은 반도체의 기본이 되는 과목구성으로 프로그램을 통해 레이아웃을 구성하고 소프트웨어와 도구를 활용하여 반도체의 성능과 안정성을 최적화 할 수 있는 정밀한 실무 중심 위주의 직무로 취업 가능</p>
+                                </div>
+                            </div>
+
+                            <!-- 소모듈 4 (중급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체공정측정분석</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체공정 측정분석 직무를 위한 이론 및 실기 능력을 갖춘 인재양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="5" class="bg-light">중급</td>
+                                                <td rowspan="4" class="bg-light">교과형</td>
+                                                <td>반도체특성실험</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                                <td rowspan="5" class="bg-light">4개 교과목 이상이고<br>10학점 이상</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체제조공정</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체장비실무</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>종합설계</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg-light">몰입형</td>
+                                                <td>반도체공정장비 실무</td>
+                                                <td>2학년</td>
+                                                <td>30</td>
+                                                <td>2</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> 반도체 공정측정 분석 과정의 경우 반도체의 특성을 파악하고 여러 과정의 공정을 확인하여 측정하고, 분석하여 평가하는 직무 구성으로 반도체 공정기술 개발, 품질 개선 등의 반도체공정과 소자 특성분석에 관련된 직무에 적합함</p>
+                                </div>
+                            </div>
+
+                            <!-- 소모듈 5 (중급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체설비운용</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체설비를 운용할 수 있는 실무 역량을 갖춘 인재양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="6" class="bg-light">중급</td>
+                                                <td rowspan="4" class="bg-light">교과형</td>
+                                                <td>PLC프로그래밍</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                                <td rowspan="6" class="bg-light">4개 교과목 이상이고<br>10학점 이상<br>(몰입형 교과목 1개 또는 2개<br>교과목 이수 가능)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체설비</td>
+                                                <td>3/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공압제어</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체제조공정</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2" class="bg-light">몰입형</td>
+                                                <td>반도체장비유지보수 실무</td>
+                                                <td>2학년</td>
+                                                <td>30</td>
+                                                <td>2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PLC실무</td>
+                                                <td>2학년</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> 반도체 장비를 운용·점검하고, 작동이상 부분 등 반도체 제품의 품질과 생산성을 결정짓는 중요한 과정으로 공정의 핵심부품, 정교한 기술 등을 습득하여 최적의 상태로 장비를 유지, 보수 할 수 있는 실무 직무능력 배양</p>
+                                </div>
+                            </div>
+
+                            <!-- 소모듈 6 (중급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체설비유지보수</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체설비를 유지 보수하기 위한 기초 지식과 실무 능력을 갖춘 인력양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="5" class="bg-light">중급</td>
+                                                <td rowspan="4" class="bg-light">교과형</td>
+                                                <td>PLC프로그래밍</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                                <td rowspan="5" class="bg-light">4개 교과목 이상이고<br>10학점 이상</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마이크로컨트롤러</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PC기반제어</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체기초</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg-light">몰입형</td>
+                                                <td>반도체위험물관리 실무</td>
+                                                <td>2,3학년</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> 반도체설비유지보수 과정은 반도체 공정을 구성하는 장비와 특징을 이해하고 반도체위험물을 관리할 수 있는 교육을 통해 유틸리티 장치의 설치, 운전, 반도체 품질 안전관리, 위험물관리 유지보수 직무에 취업 가능</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 고급 -->
+                    <div class="curri-level-block border-top">
+                        <div class="level-title">고급</div>
+                        <div class="level-content">
+                            
+                            <!-- 소모듈 1 (고급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체장비S/W운용</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체장비 제어 소프트웨어를 운영하고, 유지보수 할 수 있는 실무 역량을 갖춘 인재 양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="5" class="bg-light">고급</td>
+                                                <td rowspan="4" class="bg-light">교과형</td>
+                                                <td>인공지능개론</td>
+                                                <td>2/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                                <td rowspan="5" class="bg-light">4개 교과목 이상이고<br>10학점 이상</td>
+                                            </tr>
+                                            <tr>
+                                                <td>자동화통신</td>
+                                                <td>3/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>캡스톤디자인</td>
+                                                <td>3/1</td>
+                                                <td>90</td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PC기반제어</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bg-light">몰입형</td>
+                                                <td>반도체장비S/W 실무</td>
+                                                <td>2,3학년</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> 반도체장비S/W유지보수 과정의 과목은 프로그램을 이용하여 반도체를 구성하고 설계하여 최적의 상태로 개발하고 생산 공정 중 문제가 생길 경우 문제를 종합적으로 진단해 처리할 수 있는 유지보수 업무에 적합</p>
+                                </div>
+                            </div>
+
+                            <!-- 소모듈 2 (고급) -->
+                            <div class="course-module">
+                                <div class="module-header">
+                                    <span class="module-pill">반도체설비설계</span>
+                                </div>
+                                <div class="module-info">
+                                    <p><strong>교육 목표 :</strong> 반도체설비를 구성 및 관련 도면을 이해할 수 있는 실무 역량을 갖춘 인재양성</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="curri-table">
+                                        <thead>
+                                            <tr>
+                                                <th>수준</th>
+                                                <th>유형</th>
+                                                <th>교과목 구성</th>
+                                                <th>학년/학기</th>
+                                                <th>시간</th>
+                                                <th>학점</th>
+                                                <th>이수기준</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="5" class="bg-light">고급</td>
+                                                <td rowspan="3" class="bg-light">교과형</td>
+                                                <td>캡스톤디자인</td>
+                                                <td>3/1</td>
+                                                <td>90</td>
+                                                <td>4</td>
+                                                <td rowspan="5" class="bg-light">4개 교과목 이상이고<br>10학점 이상<br>(몰입형 교과목 1개 또는 2개<br>교과목 이수 가능)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체설비</td>
+                                                <td>3/1</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>창의과제(캡스톤디자인)</td>
+                                                <td>2/2</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2" class="bg-light">몰입형</td>
+                                                <td>도면이해 및 Solidworks 실무</td>
+                                                <td>2,3학년</td>
+                                                <td>45</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>반도체장비기구설계 실무</td>
+                                                <td>2,3학년</td>
+                                                <td>30</td>
+                                                <td>2</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-footer">
+                                    <p><strong>취업 관련 직무 :</strong> 반도체설비의 종류 및 특징을 이해하고 몰입형 교육을 통해 반도체 부품 모델링과 조립을 해보며 실무 위주 실습이 가능하고 반도체 설비의 구성과 원리를 배움으로써 반도체 설비 직무 취업에 적합</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                        </div> <!-- curri-micro end -->
+
+                        <!-- 몰입형 교육과정 탭 -->
+                        <div id="curri-immersive" class="curri-pane" style="display:none;">
+                            <div class="curri-desc">
+                                <h3 style="font-size: 1.4rem; color: var(--text-main); margin-bottom: 25px;">몰입형 교육과정</h3>
+                            </div>
+                            <!-- 초급 -->
+                            <div class="curri-level-block border-top">
+                                <div class="level-title">초급</div>
+                                <div class="level-content">
+                                    <p style="margin-bottom:15px; font-weight:600;">교육 목표 : 반도체공정장비의 유지보수를 목적으로 학생들에게 전장기술, 공압기술, 배관기술, PLC 제어 기술 학습</p>
+                                    <div class="table-responsive" style="margin-bottom:15px;">
+                                        <table class="curri-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="bg-light">초급</td>
+                                                    <td>반도체장비유지보수 실무</td>
+                                                    <td>(주)이엑스솔루션</td>
+                                                    <td>30</td>
+                                                    <td>2</td>
+                                                    <td>F/P</td>
+                                                    <td>반도체설비보전 기능사</td>
+                                                    <td>한국산업인력공단</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : 없음</p>
+                                </div>
+                            </div>
+                            
+                            <!-- 중급 -->
+                            <div class="curri-level-block border-top">
+                                <div class="level-title">중급</div>
+                                <div class="level-content">
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : 반도체공정장비의 유지보수를 목적으로 학생들에게 전장기술, 공압기술, 배관기술, PLC 제어 기술 학습</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">중급</td>
+                                                        <td>협동로봇오퍼레이션 실무</td>
+                                                        <td>두산로보틱스(주)</td>
+                                                        <td>45</td>
+                                                        <td>3</td>
+                                                        <td>F/P</td>
+                                                        <td>두산로보틱스 교육수료증 (Basic or Core)</td>
+                                                        <td>두산로보틱스</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : 기초기구학</p>
+                                    </div>
+
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : 반도체 설비 구성과 관련 도면을 이해하여 Solidwork 부품과 조립품의 형상을 파악하고 인증서를 취득하고자 함</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">중급</td>
+                                                        <td>도면이해 및 Solidworks 실무</td>
+                                                        <td>(주)큐빅시스템즈</td>
+                                                        <td>45</td>
+                                                        <td>3</td>
+                                                        <td>F/P</td>
+                                                        <td>CSWA or CSWP</td>
+                                                        <td>Dassault Systems</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : 기계제도, 3차원CAD, CAD 실무</p>
+                                    </div>
+
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : 반도체 클린룸과 설비배관 조립에 관한 실무능력을 배양하고, 산업안전기사 자격증 취득에 지식과 기술을 습득</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">중급</td>
+                                                        <td>반도체공정장비 실무</td>
+                                                        <td>페어텍</td>
+                                                        <td>30</td>
+                                                        <td>2</td>
+                                                        <td>F/P</td>
+                                                        <td>산업안전 산업기사</td>
+                                                        <td>한국산업인력공단</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : 반도체특성실험</p>
+                                    </div>
+
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : CMOS 공정을 바탕으로 한 반도체 레이아웃 설계에 대한 내용을 현장 실무형 설계 툴을 활용하여 실습 예제 진행</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">중급</td>
+                                                        <td>반도체레이아웃설계 실무</td>
+                                                        <td>나인플러스IT(주)</td>
+                                                        <td>45</td>
+                                                        <td>3</td>
+                                                        <td>F/P</td>
+                                                        <td>반도체설계 산업기사</td>
+                                                        <td>한국산업인력공단</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : 집적회로설계</p>
+                                    </div>
+
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : 위험물의 취급과 관리에 안정성을 높이기 위해 반도체 위험물 관리의 몰입형 교육 진행</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">중급</td>
+                                                        <td>반도체위험물관리 실무</td>
+                                                        <td>(주)세인티</td>
+                                                        <td>45</td>
+                                                        <td>3</td>
+                                                        <td>F/P</td>
+                                                        <td>위험물 산업기사, 위험물 관리사</td>
+                                                        <td>한국산업인력공단</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : 창의적 공학설계(캡스톤디자인)</p>
+                                    </div>
+
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : 반도체 장비 제어분야에서 제어기로 널리 사용되는 PLC와 PLC 프로그래밍</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">중급</td>
+                                                        <td>PLC 실무</td>
+                                                        <td>한국미쓰비시전기오토메이션(주)</td>
+                                                        <td>45</td>
+                                                        <td>3</td>
+                                                        <td>F/P</td>
+                                                        <td>MFEC 레벨1 또는 MFEC 레벨2</td>
+                                                        <td>한국미쓰비시전기오토메이션(주)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : PLC프로그래밍, PLC 제어</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 고급 -->
+                            <div class="curri-level-block border-top">
+                                <div class="level-title">고급</div>
+                                <div class="level-content">
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : I/O 장치, 모터, HMI가 포함된 소규모 프로젝트를 중심으로 반도체장비 소프트웨어와 관련된 실무 능력 배양</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">고급</td>
+                                                        <td>반도체장비S/W 실무</td>
+                                                        <td>(주)제이케이테크</td>
+                                                        <td>45</td>
+                                                        <td>3</td>
+                                                        <td>F/P</td>
+                                                        <td>자동화설비 산업기사, 산업안전 관리사</td>
+                                                        <td>한국산업인력공단</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p style="font-size:0.95rem; color:var(--text-desc);">● 선수과목 : 마이크로컨트롤러</p>
+                                    </div>
+
+                                    <div style="margin-bottom:40px;">
+                                        <p style="margin-bottom:15px; font-weight:600;">교육 목표 : 반도체장비를 구성하는 기계요소를 이해하고, 이의 설계 및 선정 방법에 관한 이론과 실무를 학습, 반도체 장비 기구설계 및 유지보수 능력을 함양</p>
+                                        <div class="table-responsive" style="margin-bottom:15px;">
+                                            <table class="curri-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>구분</th><th>교과목명</th><th>참여 기업</th><th>시간</th><th>학점</th><th>이수 기준</th><th>연계 자격증</th><th>발급처</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="bg-light">고급</td>
+                                                        <td>반도체장비기구설계실무</td>
+                                                        <td>큐빅시스템즈</td>
+                                                        <td>30</td>
+                                                        <td>2</td>
+                                                        <td>F/P</td>
+                                                        <td>기계설계산업기사</td>
+                                                        <td>한국산업인력공단</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- curri-immersive end -->
+
+                        <!-- 기타 교육과정 탭 -->
+                        <div id="curri-other" class="curri-pane" style="display:none;">
+                            <div class="curri-desc">
+                                <h3 style="font-size: 1.4rem; color: var(--text-main); margin-bottom: 25px;">기타 교육과정</h3>
+                                <p>- 마이크로디그리, 몰입형 교육 과정 외 부트캠프사업단에서 제공하는 비교과 교육과정 프로그램으로 학점이 부여되지 않는 프로그램</p>
+                                <p>- 현장견학, 현장실습, 산업체 멘토링, 취업캠프 등 현장 실무 및 취업 지원을 위한 프로그램</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="curri-table">
+                                    <thead>
+                                        <tr>
+                                            <th>구분</th><th>프로그램</th><th>목적</th><th>내용</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="3" class="bg-light" style="vertical-align:middle;">실무역량강화</td>
+                                            <td>현장견학</td>
+                                            <td style="text-align:left; padding:15px;">산업 현장을 직접 방문하여 업무 환경과 실제 작업 과정을 체험하며 산업에 대한 이해도를 높임</td>
+                                            <td style="text-align:left; padding:15px; line-height:1.6;">제조업체, 연구소, 스타트업 등 다양한 기업 방문<br>현장 전문가와의 질의응답 세션<br>현장 경험 공유 및 학습 사료 제공</td>
+                                        </tr>
+                                        <tr>
+                                            <td>현장실습</td>
+                                            <td style="text-align:left; padding:15px;">기업 내 실무 경험을 통해 실질적인 업무 능력을 배양</td>
+                                            <td style="text-align:left; padding:15px; line-height:1.6;">지정된 기업에서 일정 기간 동안 실습 수행<br>현업 프로젝트 참여 및 보고서 작성<br>실습 후 피드백 및 성과 평가</td>
+                                        </tr>
+                                        <tr>
+                                            <td>반도체산업전 참가</td>
+                                            <td style="text-align:left; padding:15px;">반도체 산업 트렌드와 신기술을 탐구하며 관련 산업에 대한 전문성 함양</td>
+                                            <td style="text-align:left; padding:15px; line-height:1.6;">반도체 관련 최신 기술 및 장비 전시 관람<br>산업 전문가 세미나 및 발표 참여<br>기술 트렌드와 미래 전망에 대한 학습</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2" class="bg-light" style="vertical-align:middle;">취업지원</td>
+                                            <td>취업컨설팅</td>
+                                            <td style="text-align:left; padding:15px;">취업 준비 과정을 체계적으로 지원하여 성공적인 취업을 달성</td>
+                                            <td style="text-align:left; padding:15px; line-height:1.6;">모의면접: 실제 면접과 유사한 환경에서 모의 연습 및 피드백 제공<br>이력서 작성: 전문 컨설턴트의 도움을 받아 효과적인 이력서 작성<br>스피치 코칭: 자기소개 및 면접 답변에서의 자신감과 전달력 강화</td>
+                                        </tr>
+                                        <tr>
+                                            <td>취업설명회</td>
+                                            <td style="text-align:left; padding:15px;">채용 정보를 제공하고 취업 가능성을 높이는 네트워킹 기회 마련</td>
+                                            <td style="text-align:left; padding:15px; line-height:1.6;">기업 채용 담당자 초청 설명회<br>최신 채용 트렌드 및 절차 안내<br>Q&A 및 네트워킹 세션</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- curri-other end -->
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 로그인 모달 -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header" style="text-align: center; margin-bottom: 25px;">
+                <h3 style="font-size:1.8rem; color:var(--deep-blue); margin-bottom:8px;">학생 로그인</h3>
+                <p style="color:var(--text-desc); font-size:0.95rem;">마이페이지(대시보드) 접속을 위해 로그인하세요.</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="userId" style="display:block; margin-bottom:5px; font-weight:600; font-size:0.95rem;">학번 (아이디)</label>
+                    <input type="text" id="userId" placeholder="예: 1111" required style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:1rem;">
+                </div>
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label for="userPw" style="display:block; margin-bottom:5px; font-weight:600; font-size:0.95rem;">비밀번호</label>
+                    <input type="password" id="userPw" placeholder="예: 1111" required style="width:100%; padding:12px; border:1px solid #CBD5E1; border-radius:8px; font-size:1rem;">
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding:14px; font-size:1.1rem; border:none; cursor:pointer;">로그인</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 스크립트 연결 -->
+    <script src="./js/script.js"></script>
+</body>
+</html>

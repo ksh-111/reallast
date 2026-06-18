@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 내용 보기 - 동양미래대학교 반도체 부트캠프</title>
+    <!-- 폰트 적용 (Pretendard) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .view-container {
+            max-width: 900px;
+            margin: 120px auto 100px;
+            padding: 0 20px;
+        }
+        
+        .breadcrumb {
+            text-align: right;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .view-header {
+            border-top: 2px solid #111;
+            border-bottom: 1px solid #ddd;
+            padding: 20px;
+            background-color: #fcfcfc;
+        }
+        .view-title {
+            font-size: 1.6rem;
+            color: #111;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .view-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .view-meta span strong {
+            color: #333;
+        }
+
+        .view-content {
+            padding: 40px 20px;
+            min-height: 250px;
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.7;
+            border-bottom: 1px solid #ddd;
+            white-space: pre-wrap; /* 줄바꿈 유지 */
+        }
+
+        .view-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn-list {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 12px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-list:hover {
+            background-color: #0b4a99;
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 바 (헤더) -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration:none;">
+                    <span class="highlight">DMU</span> 반도체 부트캠프
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html#curriculum">프로그램 소개</a></li>
+                    <li><a href="board.html" style="color:var(--electric-blue);">게시판</a></li>
+                    <li><a href="#" class="btn-secondary" id="loginBtn" style="color:var(--deep-blue) !important; border-color:var(--deep-blue);">로그인</a></li>
+                    <li><a href="apply.html" class="btn-primary">지원하기</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="view-container">
+        <!-- 브레드크럼 -->
+        <div class="breadcrumb">
+            <a href="index.html">🏠</a>
+            <span>></span>
+            <a href="board.html" style="color:#666; text-decoration:none;">게시판</a>
+            <span>></span>
+            <strong>글 보기</strong>
+        </div>
+
+        <div class="view-header">
+            <h2 id="viewTitle" class="view-title">제목을 불러오는 중...</h2>
+            <div class="view-meta">
+                <span><strong>작성자:</strong> <span id="viewAuthor">-</span></span>
+                <span><strong>작성일:</strong> <span id="viewDate">-</span></span>
+                <span><strong>조회수:</strong> <span id="viewViews">-</span></span>
+            </div>
+        </div>
+
+        <div id="viewContent" class="view-content">내용을 불러오는 중...</div>
+
+        <div class="view-actions">
+            <a href="board.html" class="btn-list">목록으로</a>
+        </div>
+    </main>
+
+    <script src="./js/script.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getFirestore, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+        // 발급받은 Firebase 설정 정보
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_ocC6LdqJ1HxK-5dga3HJ1r3Eap0lXHk",
+            authDomain: "kshfood-f4e24.firebaseapp.com",
+            projectId: "kshfood-f4e24",
+            storageBucket: "kshfood-f4e24.firebasestorage.app",
+            messagingSenderId: "433157257385",
+            appId: "1:433157257385:web:c5c6c713bf40f4c35091b8"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+
+            if (!postId) {
+                alert('잘못된 접근입니다.');
+                window.location.href = 'board.html';
+                return;
+            }
+
+            const docRef = doc(db, "posts", postId);
+            
+            try {
+                // 문서 조회수 증가 통신
+                await updateDoc(docRef, {
+                    views: increment(1)
+                });
+                
+                // 증가된 내용 문서를 다시 가져오기
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const post = docSnap.data();
+                    const dateStr = post.createdAt ? new Date(post.createdAt).toLocaleDateString() : '알수없음';
+                    
+                    document.getElementById('viewTitle').textContent = post.title;
+                    document.getElementById('viewAuthor').textContent = post.author;
+                    document.getElementById('viewDate').textContent = dateStr;
+                    document.getElementById('viewViews').textContent = post.views || 0;
+                    document.getElementById('viewContent').textContent = post.content;
+                } else {
+                    alert('존재하지 않거나 삭제된 게시글입니다.');
+                    window.location.href = 'board.html';
+                }
+            } catch (error) {
+                console.error("Error formatting document: ", error);
+                alert("게시물을 불러오는 중 오류가 발생했습니다.");
+            }
+        });
+    </script>
+</body>
+</html>

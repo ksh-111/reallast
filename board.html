@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 - 동양미래대학교 반도체 부트캠프</title>
+    <!-- 폰트 적용 (Pretendard) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .board-container {
+            max-width: 1200px;
+            margin: 120px auto 100px;
+            padding: 0 20px;
+        }
+        
+        .breadcrumb {
+            text-align: right;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #111;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .board-header-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .btn-write {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-write:hover {
+            background-color: #0b4a99;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .board-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.95rem;
+            border-top: 2px solid #111;
+        }
+
+        .board-table th {
+            padding: 15px 10px;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+            font-weight: 600;
+            background-color: #f9f9f9;
+        }
+
+        .board-table td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            vertical-align: middle;
+        }
+
+        .board-table td.title-col {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .board-table td.title-col a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .board-table td.title-col a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 바 (헤더) -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration:none;">
+                    <span class="highlight">DMU</span> 반도체 부트캠프
+                </a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html#curriculum">프로그램 소개</a></li>
+                    <li><a href="board.html" style="color:var(--electric-blue);">게시판</a></li>
+                    <li><a href="#" class="btn-secondary" id="loginBtn" style="color:var(--deep-blue) !important; border-color:var(--deep-blue);">로그인</a></li>
+                    <li><a href="apply.html" class="btn-primary">지원하기</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="board-container">
+        <!-- 브레드크럼 -->
+        <div class="breadcrumb">
+            <a href="index.html">🏠</a>
+            <span>></span>
+            <strong>게시판</strong>
+        </div>
+
+        <!-- 타이틀 -->
+        <h2 class="page-title">자유 게시판</h2>
+
+        <div class="board-header-actions">
+            <a href="write.html" class="btn-write">글 작성하기</a>
+        </div>
+
+        <!-- 게시판 테이블 -->
+        <div class="table-wrapper">
+            <table class="board-table">
+                <colgroup>
+                    <col style="width: 8%;">
+                    <col style="width: auto;">
+                    <col style="width: 12%;">
+                    <col style="width: 15%;">
+                    <col style="width: 8%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회</th>
+                    </tr>
+                </thead>
+                <tbody id="boardList">
+                    <!-- 스크립트로 렌더링됩니다 -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- 스크립트 연결 -->
+    <script src="./js/script.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+        // 발급받은 Firebase 설정 정보
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_ocC6LdqJ1HxK-5dga3HJ1r3Eap0lXHk",
+            authDomain: "kshfood-f4e24.firebaseapp.com",
+            projectId: "kshfood-f4e24",
+            storageBucket: "kshfood-f4e24.firebasestorage.app",
+            messagingSenderId: "433157257385",
+            appId: "1:433157257385:web:c5c6c713bf40f4c35091b8"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const boardList = document.getElementById('boardList');
+            try {
+                // posts 컬렉션에서 작성일(createdAt) 기준 내림차순(desc)으로 가져오기
+                const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    boardList.innerHTML = '<tr><td colspan="5" style="padding:40px; text-align:center;">등록된 게시글이 없습니다.</td></tr>';
+                    return;
+                }
+
+                let html = '';
+                let index = querySnapshot.size;
+                querySnapshot.forEach((doc) => {
+                    const post = doc.data();
+                    const dateStr = post.createdAt ? new Date(post.createdAt).toLocaleDateString() : '방금전';
+                    html += `
+                        <tr>
+                            <td>${index--}</td>
+                            <td class="title-col"><a href="view.html?id=${doc.id}">${post.title}</a></td>
+                            <td>${post.author}</td>
+                            <td>${dateStr}</td>
+                            <td>${post.views || 0}</td>
+                        </tr>
+                    `;
+                });
+                boardList.innerHTML = html;
+            } catch (error) {
+                console.error("Error reading documents: ", error);
+                boardList.innerHTML = '<tr><td colspan="5" style="padding:40px; text-align:center;">데이터를 불러오는 데 실패했습니다. 아직 작성된 글이 없거나 Firestore 설정을 확인해주세요.</td></tr>';
+            }
+        });
+    </script>
+</body>
+</html>
